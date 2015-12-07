@@ -43,6 +43,7 @@ $ sudo apt-get install gdebi
 ```
 sudo gdebi haroopad-v0.13.1-x64.deb
 ```
+
 因为我在上面下载的是haroopad-v0.13.1-x64.deb，根据自己下载改变上面命令吧
 之后在终端运行
 

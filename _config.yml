@@ -8,11 +8,11 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Jekyll Bootstrap
+title : T3REE
 tagline: Site Tagline
 author :
-  name : Name Lastname
-  email : blah@email.test
+  name : T3REE ZHOU
+  email : guilty.dizzy@gmail.com
   github : username
   twitter : username
   feedburner : feedname
