@@ -58,8 +58,9 @@ $ haroopad
 
 ## 可能会遇到的问题
 
-```
+{% highlight ruby %}
 /usr/lib/x86_64-linux-gnu/libnss3.so:version 'NSS_3.14.3' not found
+{% endhighlight %}
 ```
 
 遇到上述情况是haroopad需要使用的nss比较高，本地版本低，这时只需要升级一下本地的nss即可
