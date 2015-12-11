@@ -22,7 +22,7 @@ tags: [question,deloy,jekyll]
 
 - ###提交问题
 
-因为之前一直是用https的形式来clone和push的，发现老是得输入username和password，简直就是烦人，去网上搜下，有一种是在环境中写人username和password，但总是觉得有点别扭，最后才发现原来用ssh来设置url就只会在每次开启终端的时候push会要求提交验证一次私钥，之后都不会要求输入了，这就好办了，有两种方式可以解决
+因为之前一直是用https的形式来clone和push的，发现老是得输入username和password，简直就是烦人，去网上搜下，有一种是在环境中写人username和password，但总是觉得有点别扭，最后才发现原来用ssh来设置url就只会在每次开机的时候push会要求提交验证一次私钥，之后都不会要求输入了，这就好办了，有两种方式可以解决
 
 1 在clone的时候用的是ssh而不是https，即
 
