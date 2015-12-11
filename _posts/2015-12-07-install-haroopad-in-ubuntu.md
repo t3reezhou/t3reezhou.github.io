@@ -2,8 +2,8 @@
 layout: post
 title: "Install Haroopad In Ubuntu"
 description: "how to install haroopad in ubuntu"
-category: lesson
-tags: [haroopad,install,ubuntu]
+category: install
+tags: [haroopad,install,linux]
 ---
 {% include JB/setup %}
 

@@ -5,7 +5,7 @@ The Question I Meeet In Deploying Environment for jekyll
 "
 description: "not a hard work"
 category: install
-tags: [question,deloy,jekyll]
+tags: [question,deloy,jekyll,linux]
 ---
 {% include JB/setup %}
 
