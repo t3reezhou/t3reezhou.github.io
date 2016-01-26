@@ -1,5 +1,6 @@
 ---
 layout: post
+wordpress_id: Setting_Service_wechat_2016_01_25
 title: "Setting Service wechat"
 description: ""
 category: wechat
