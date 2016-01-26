@@ -26,7 +26,7 @@ tags: [wechat]
 ![配置菜单栏-1](/public/swechat160125/set-menu-1.png)
 
 
-填写appid和secret，不清楚的点击公众号设置界面左侧菜单栏点击公众号测试，就能看到如下的界面
+填写appid和secret，不清楚的在公众号设置界面左侧菜单栏点击基本配置，就能看到如下的界面
 
 ![配置菜单栏-2](/public/swechat160125/set-menu-2.png)
 
