@@ -13,8 +13,8 @@ tagline: Site Tagline
 author :
   name : T3REE ZHOU
   email : guilty.dizzy@gmail.com
-  github : username
-  twitter : username
+  github : t3reezhou
+  twitter : guilty_dizzy
   feedburner : feedname
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -81,7 +81,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : t3reezhou
     livefyre :
       site_id : 123
     intensedebate :
