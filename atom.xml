@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[t3reezhou]]></title>
+  <link href="t3reezhou.github.io/atom.xml" rel="self"/>
+  <link href="t3reezhou.github.io/"/>
+  <updated>2018-10-03T20:54:31+08:00</updated>
+  <id>t3reezhou.github.io/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://www.coderforart.com/">CoderForArt</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[实现数组倒序]]></title>
+    <link href="t3reezhou.github.io/15233326936347.html"/>
+    <updated>2018-04-10T11:58:13+08:00</updated>
+    <id>t3reezhou.github.io/15233326936347.html</id>
+    <content type="html"><![CDATA[
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;sort&quot;
+    &quot;strings&quot;
+)
+
+func main() {
+    god := []string{&quot;g&quot;, &quot;o&quot;, &quot;d&quot;}
+    sort.SliceStable(god, func(i, j int) bool { return i &gt; j })
+    fmt.Printf(&quot;god is %s&quot;, strings.Join(god,&quot;&quot;))
+}
+</code></pre>
+
+<p>output is : god is dog</p>
+
+]]></content>
+  </entry>
+  
+</feed>
