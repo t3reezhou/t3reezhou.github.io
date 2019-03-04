@@ -82,6 +82,212 @@ $(document).ready(function(event) {
 
 	<article>
 		 <header>
+		  	<h1 class="entry-title"><a href="15516707139709.html">超时表象</a></h1>
+			<p class="meta"><time datetime="2019-03-04T11:38:33+08:00" 
+			pubdate data-updated="true">2019/3/4</time></p>
+		 </header>
+	  	<div class="entry-content">
+		  	
+		  	<pre><code class="language-go">package main
+
+import (
+    &quot;context&quot;
+    &quot;errors&quot;
+    &quot;fmt&quot;
+    &quot;time&quot;
+)
+
+func main() {
+    ctx, cancle := context.WithTimeout(context.Background(), time.Second*5)
+    defer cancle()
+    fmt.Println(&quot;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;, T2(ctx))
+
+}
+
+func T(ctx context.Context) []int {
+    c := make(chan int)
+    go func() {
+        for i := 0; i &lt; 10; i++ {
+            c &lt;- i
+            time.Sleep(1 * time.Second)
+        }
+        close(c)
+    }()
+    result := make([]int, 0)
+    for {
+        var (
+            ok bool
+            x  int
+        )
+        select {
+        case x, ok = &lt;-c:
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, x)
+            result = append(result, x)
+        case &lt;-ctx.Done():
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;timeout&quot;)
+        }
+        if !ok {
+            break
+        }
+    }
+    return result
+}
+
+func T2(ctx context.Context) []int {
+    c := make(chan error)
+    result := make([]int, 0)
+    go func() {
+        defer close(c)
+
+        for i := 0; i &lt; 10; i++ {
+            result = append(result, i)
+            c &lt;- errors.New(&quot;hahahah&quot;)
+            time.Sleep(1 * time.Second)
+        }
+    }()
+    for {
+        select {
+        case x, ok := &lt;-c:
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, x)
+            if !ok {
+                return result
+            }
+        case &lt;-ctx.Done():
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;timeout&quot;)
+            return result
+        }
+    }
+}
+
+func T3() []int {
+    c := make(chan error)
+    result := make([]int, 0)
+    go func() {
+        defer close(c)
+
+        for i := 0; i &lt; 10; i++ {
+            result = append(result, i)
+            c &lt;- errors.New(&quot;hahahah&quot;)
+            time.Sleep(1 * time.Second)
+        }
+    }()
+    for {
+        select {
+        case x, ok := &lt;-c:
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, x)
+            if !ok {
+                return result
+            }
+        case &lt;-time.After(time.Second * 5):
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;timeout&quot;)
+            return result
+        }
+    }
+}
+
+func T4() []int {
+    c := make(chan error)
+    result := make([]int, 0)
+    go func() {
+        defer close(c)
+        for i := 0; i &lt; 10; i++ {
+            result = append(result, i)
+            c &lt;- errors.New(&quot;hahahah&quot;)
+            time.Sleep(6 * time.Second)
+        }
+    }()
+    for {
+        select {
+        case x, ok := &lt;-c:
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, x)
+            if !ok {
+                return result
+            }
+        case &lt;-time.After(time.Second * 5):
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;timeout&quot;)
+            return result
+        }
+    }
+}
+
+func T5() []int {
+    c := make(chan error)
+    result := make([]int, 0)
+    go func() {
+        defer close(c)
+        for i := 0; i &lt; 10; i++ {
+            result = append(result, i)
+            c &lt;- errors.New(&quot;hahahah&quot;)
+            time.Sleep(6 * time.Second)
+        }
+    }()
+    for timeOut := time.After(time.Second * 20); ; {
+        select {
+        case x, ok := &lt;-c:
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, x)
+            if !ok {
+                return result
+            }
+        case &lt;-timeOut:
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;timeout&quot;)
+            return result
+        }
+    }
+}
+
+</code></pre>
+
+
+		</div>
+
+		
+
+	</article>
+ 
+	<article>
+		 <header>
+		  	<h1 class="entry-title"><a href="15516705202360.html">延迟运行func中的指针问题</a></h1>
+			<p class="meta"><time datetime="2019-03-04T11:35:20+08:00" 
+			pubdate data-updated="true">2019/3/4</time></p>
+		 </header>
+	  	<div class="entry-content">
+		  	
+		  	<pre><code class="language-go"># package main
+
+import &quot;fmt&quot;
+
+func main() {
+    origin := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+    s := func(i int) func() {
+        return func() {
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, i)
+        }
+    }(origin[9])
+
+    origin[9] = 10
+    s() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
+    origin = append([]int{-1}, origin...)
+    s() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
+    s2 := func(i *int) func() {
+        return func() {
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, *i)
+        }
+    }(&amp;(origin[9]))
+    s2() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8
+    origin[9] = 9
+    s2() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
+}
+</code></pre>
+
+
+		</div>
+
+		
+
+	</article>
+ 
+	<article>
+		 <header>
 		  	<h1 class="entry-title"><a href="15233326936347.html">实现数组倒序</a></h1>
 			<p class="meta"><time datetime="2018-04-10T11:58:13+08:00" 
 			pubdate data-updated="true">2018/4/10</time></p>
@@ -126,7 +332,28 @@ func main() {
 	  <ul id="recent_posts">
 	  
 	      <li class="post">
-	        <a href="golang.html"><strong>golang&nbsp;(1)</strong></a>
+	        <a href="golang.html"><strong>golang&nbsp;(3)</strong></a>
+	        
+	        
+	        
+	      </li>
+	  
+	      <li class="post">
+	        <a href="%E7%AE%97%E6%B3%95.html"><strong>算法&nbsp;(1)</strong></a>
+	        
+	        
+	        
+	      </li>
+	  
+	      <li class="post">
+	        <a href="note.html"><strong>note&nbsp;(1)</strong></a>
+	        
+	        
+	        
+	      </li>
+	  
+	      <li class="post">
+	        <a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html"><strong>设计模式&nbsp;(1)</strong></a>
 	        
 	        
 	        
@@ -140,9 +367,35 @@ func main() {
 	  
 	      
 		      <li class="post">
-		        <a href="15233326936347.html">实现数组倒序</a>
+		        <a href="15516707139709.html">超时表象</a>
 		      </li>
 	     
+	  
+	      
+		      <li class="post">
+		        <a href="15516705202360.html">延迟运行func中的指针问题</a>
+		      </li>
+	     
+	  
+	      
+		      <li class="post">
+		        <a href="15511520390847.html">六大原则</a>
+		      </li>
+	     
+	  
+	      
+		      <li class="post">
+		        <a href="15401753860167.html">高可用</a>
+		      </li>
+	     
+	  
+	      
+		      <li class="post">
+		        <a href="15392434025926.html">矩阵空间压缩方法</a>
+		      </li>
+	     
+	  
+	      
 	   
 	  </ul>
 	</section>

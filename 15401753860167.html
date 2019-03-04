@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <title>
     
-  实现数组倒序 - t3reezhou
+  高可用 - t3reezhou
   
 
   </title>
@@ -81,26 +81,21 @@ $(document).ready(function(event) {
 <div>
 	<article class="hentry" role="article">
 	<header>
-			  	<h1 class="entry-title">实现数组倒序</h1>
-				<p class="meta"><time datetime="2018-04-10T11:58:13+08:00" pubdate data-updated="true">2018/4/10</time></p>
+			  	<h1 class="entry-title">高可用</h1>
+				<p class="meta"><time datetime="2018-10-22T10:29:46+08:00" pubdate data-updated="true">2018/10/22</time></p>
 			 </header>
 		  	<div class="entry-content">
-			  	<pre><code class="language-go">package main
+			  	<p>衡量一个系统架构设计是否满足高可用的目标，就是假设系统中任何一台或者多台服务器宂机时，以及出现各种不可预期的问题时，系统整体是否依然可用</p>
 
-import (
-    &quot;fmt&quot;
-    &quot;sort&quot;
-    &quot;strings&quot;
-)
+<h2 id="toc_0">伸缩性</h2>
 
-func main() {
-    god := []string{&quot;g&quot;, &quot;o&quot;, &quot;d&quot;}
-    sort.SliceStable(god, func(i, j int) bool { return i &gt; j })
-    fmt.Printf(&quot;god is %s&quot;, strings.Join(god,&quot;&quot;))
-}
-</code></pre>
+<p>所谓伸缩性时指通过不断向集群中加入服务器的手段来缓解不断上升的用户并发访问压力和不断增长的数据存储需求</p>
 
-<p>output is : god is dog</p>
+<p>衡量架构伸缩性的主要标准就是是否可以用多台服务器构建集群，是否容易向集群中添加新的服务器，加入新的服务器后是否可以提供和原来的服务器无差别的服务，集群中可容纳的总的服务器数量是否有限制</p>
+
+<h2 id="toc_1">拓展性</h2>
+
+<p>衡量网站架构拓展性好坏的主要标准就是在网站增加新的业务产品时，是否可以实现对现有产品透明无影响，不需要任何改动或者很少改动既有业务功能就可以上线新产品。不同产品之间是否很少耦合，一个产品改动对其他产品无影响，其他产品和功能不需要受牵连进行改动</p>
 
 			</div>
 
@@ -112,7 +107,7 @@ func main() {
 			<strong>Categories:</strong>&nbsp; 
 			<span class="categories">
 			
-			    <a class='category' href='golang.html'>golang</a>&nbsp;
+			    <a class='category' href='note.html'>note</a>&nbsp;
 			 
 			</span>
 		    </p>
@@ -130,9 +125,12 @@ func main() {
 
 	    <p class="meta">
 	    
-	        <a class="basic-alignment left" href="15392434025926.html" 
-	        title="Previous Post: 矩阵空间压缩方法">&laquo; 矩阵空间压缩方法</a>
+	        <a class="basic-alignment left" href="15511520390847.html" 
+	        title="Previous Post: 六大原则">&laquo; 六大原则</a>
 	    
+	    
+	        <a class="basic-alignment right" href="15392434025926.html" 
+	        title="Next Post: 矩阵空间压缩方法">矩阵空间压缩方法 &raquo;</a>
 	    
 	    </p>
 	  </footer>

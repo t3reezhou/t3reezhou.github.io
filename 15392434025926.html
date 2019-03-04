@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <title>
     
-  实现数组倒序 - t3reezhou
+  矩阵空间压缩方法 - t3reezhou
   
 
   </title>
@@ -81,26 +81,12 @@ $(document).ready(function(event) {
 <div>
 	<article class="hentry" role="article">
 	<header>
-			  	<h1 class="entry-title">实现数组倒序</h1>
-				<p class="meta"><time datetime="2018-04-10T11:58:13+08:00" pubdate data-updated="true">2018/4/10</time></p>
+			  	<h1 class="entry-title">矩阵空间压缩方法</h1>
+				<p class="meta"><time datetime="2018-10-11T15:36:42+08:00" pubdate data-updated="true">2018/10/11</time></p>
 			 </header>
 		  	<div class="entry-content">
-			  	<pre><code class="language-go">package main
-
-import (
-    &quot;fmt&quot;
-    &quot;sort&quot;
-    &quot;strings&quot;
-)
-
-func main() {
-    god := []string{&quot;g&quot;, &quot;o&quot;, &quot;d&quot;}
-    sort.SliceStable(god, func(i, j int) bool { return i &gt; j })
-    fmt.Printf(&quot;god is %s&quot;, strings.Join(god,&quot;&quot;))
-}
-</code></pre>
-
-<p>output is : god is dog</p>
+			  	<p>在动态规划里，如果只是得到结果而非过程，实际可以不记录整个矩阵，可以压缩为min(m,n)<br/>
+在最短路径问题里，如果只是要得出最短路径和的话，可以用到这个技巧</p>
 
 			</div>
 
@@ -112,7 +98,7 @@ func main() {
 			<strong>Categories:</strong>&nbsp; 
 			<span class="categories">
 			
-			    <a class='category' href='golang.html'>golang</a>&nbsp;
+			    <a class='category' href='%E7%AE%97%E6%B3%95.html'>算法</a>&nbsp;
 			 
 			</span>
 		    </p>
@@ -130,9 +116,12 @@ func main() {
 
 	    <p class="meta">
 	    
-	        <a class="basic-alignment left" href="15392434025926.html" 
-	        title="Previous Post: 矩阵空间压缩方法">&laquo; 矩阵空间压缩方法</a>
+	        <a class="basic-alignment left" href="15401753860167.html" 
+	        title="Previous Post: 高可用">&laquo; 高可用</a>
 	    
+	    
+	        <a class="basic-alignment right" href="15233326936347.html" 
+	        title="Next Post: 实现数组倒序">实现数组倒序 &raquo;</a>
 	    
 	    </p>
 	  </footer>

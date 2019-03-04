@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <title>
     
-  t3reezhou
+  超时表象 - t3reezhou
   
 
   </title>
@@ -78,17 +78,14 @@ $(document).ready(function(event) {
 </nav>
   <div id="main">
     <div id="content"> 
-<div class="blog-index">
-
-	<article>
-		 <header>
-		  	<h1 class="entry-title"><a href="15516707139709.html">超时表象</a></h1>
-			<p class="meta"><time datetime="2019-03-04T11:38:33+08:00" 
-			pubdate data-updated="true">2019/3/4</time></p>
-		 </header>
-	  	<div class="entry-content">
-		  	
-		  	<pre><code class="language-go">package main
+<div>
+	<article class="hentry" role="article">
+	<header>
+			  	<h1 class="entry-title">超时表象</h1>
+				<p class="meta"><time datetime="2019-03-04T11:38:33+08:00" pubdate data-updated="true">2019/3/4</time></p>
+			 </header>
+		  	<div class="entry-content">
+			  	<pre><code class="language-go">package main
 
 import (
     &quot;context&quot;
@@ -237,162 +234,41 @@ func T5() []int {
 
 </code></pre>
 
-
-		</div>
-
-		
-
-	</article>
- 
-	<article>
-		 <header>
-		  	<h1 class="entry-title"><a href="15516705202360.html">延迟运行func中的指针问题</a></h1>
-			<p class="meta"><time datetime="2019-03-04T11:35:20+08:00" 
-			pubdate data-updated="true">2019/3/4</time></p>
-		 </header>
-	  	<div class="entry-content">
-		  	
-		  	<pre><code class="language-go"># package main
-
-import &quot;fmt&quot;
-
-func main() {
-    origin := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-    s := func(i int) func() {
-        return func() {
-            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, i)
-        }
-    }(origin[9])
-
-    origin[9] = 10
-    s() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
-    origin = append([]int{-1}, origin...)
-    s() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
-    s2 := func(i *int) func() {
-        return func() {
-            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, *i)
-        }
-    }(&amp;(origin[9]))
-    s2() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8
-    origin[9] = 9
-    s2() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
-}
-</code></pre>
-
-
-		</div>
+			</div>
 
 		
+	  
+		<footer>
+		 <p class="meta">
 
-	</article>
- 
-	<article>
-		 <header>
-		  	<h1 class="entry-title"><a href="15511520390847.html">六大原则</a></h1>
-			<p class="meta"><time datetime="2019-02-26T11:33:59+08:00" 
-			pubdate data-updated="true">2019/2/26</time></p>
-		 </header>
-	  	<div class="entry-content">
-		  	
-		  	<ol>
-<li>职责单一原则</li>
-<li>里式替换原则</li>
-<li>依赖倒置原则</li>
-<li>接口隔离原则</li>
-<li>迪米特原则</li>
-<li>开闭原则</li>
-</ol>
-
-
-		</div>
-
-		
-
-	</article>
- 
-	<article>
-		 <header>
-		  	<h1 class="entry-title"><a href="15401753860167.html">高可用</a></h1>
-			<p class="meta"><time datetime="2018-10-22T10:29:46+08:00" 
-			pubdate data-updated="true">2018/10/22</time></p>
-		 </header>
-	  	<div class="entry-content">
-		  	
-		  	<p>衡量一个系统架构设计是否满足高可用的目标，就是假设系统中任何一台或者多台服务器宂机时，以及出现各种不可预期的问题时，系统整体是否依然可用</p>
-
-<h2 id="toc_0">伸缩性</h2>
-
-<p>所谓伸缩性时指通过不断向集群中加入服务器的手段来缓解不断上升的用户并发访问压力和不断增长的数据存储需求</p>
-
-<p>衡量架构伸缩性的主要标准就是是否可以用多台服务器构建集群，是否容易向集群中添加新的服务器，加入新的服务器后是否可以提供和原来的服务器无差别的服务，集群中可容纳的总的服务器数量是否有限制</p>
-
-<h2 id="toc_1">拓展性</h2>
-
-<p>衡量网站架构拓展性好坏的主要标准就是在网站增加新的业务产品时，是否可以实现对现有产品透明无影响，不需要任何改动或者很少改动既有业务功能就可以上线新产品。不同产品之间是否很少耦合，一个产品改动对其他产品无影响，其他产品和功能不需要受牵连进行改动</p>
-
-
-		</div>
-
-		
-
-	</article>
- 
-	<article>
-		 <header>
-		  	<h1 class="entry-title"><a href="15392434025926.html">矩阵空间压缩方法</a></h1>
-			<p class="meta"><time datetime="2018-10-11T15:36:42+08:00" 
-			pubdate data-updated="true">2018/10/11</time></p>
-		 </header>
-	  	<div class="entry-content">
-		  	
-		  	<p>在动态规划里，如果只是得到结果而非过程，实际可以不记录整个矩阵，可以压缩为min(m,n)<br/>
-在最短路径问题里，如果只是要得出最短路径和的话，可以用到这个技巧</p>
-
-
-		</div>
-
-		
-
-	</article>
- 
-	<article>
-		 <header>
-		  	<h1 class="entry-title"><a href="15233326936347.html">实现数组倒序</a></h1>
-			<p class="meta"><time datetime="2018-04-10T11:58:13+08:00" 
-			pubdate data-updated="true">2018/4/10</time></p>
-		 </header>
-	  	<div class="entry-content">
-		  	
-		  	<pre><code class="language-go">package main
-
-import (
-    &quot;fmt&quot;
-    &quot;sort&quot;
-    &quot;strings&quot;
-)
-
-func main() {
-    god := []string{&quot;g&quot;, &quot;o&quot;, &quot;d&quot;}
-    sort.SliceStable(god, func(i, j int) bool { return i &gt; j })
-    fmt.Printf(&quot;god is %s&quot;, strings.Join(god,&quot;&quot;))
-}
-</code></pre>
-
-<p>output is : god is dog</p>
-
-
-		</div>
-
-		
-
-	</article>
-  
-	<div class="pagination">
-	
-<a href="archives.html">Blog Archives</a>
-	 
+			<strong>Categories:</strong>&nbsp; 
+			<span class="categories">
+			
+			    <a class='category' href='golang.html'>golang</a>&nbsp;
+			 
+			</span>
+		    </p>
+		    <p class="meta">
+		      
+		 </p>
 	    
-	</div>
+		<div class="sharing">
+		  
+          
+
+          
+
+		</div>
+
+	    <p class="meta">
+	    
+	    
+	        <a class="basic-alignment right" href="15516705202360.html" 
+	        title="Next Post: 延迟运行func中的指针问题">延迟运行func中的指针问题 &raquo;</a>
+	    
+	    </p>
+	  </footer>
+	</article>
 </div>
  <aside class="sidebar"> 
 

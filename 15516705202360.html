@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <title>
     
-  实现数组倒序 - t3reezhou
+  延迟运行func中的指针问题 - t3reezhou
   
 
   </title>
@@ -81,26 +81,36 @@ $(document).ready(function(event) {
 <div>
 	<article class="hentry" role="article">
 	<header>
-			  	<h1 class="entry-title">实现数组倒序</h1>
-				<p class="meta"><time datetime="2018-04-10T11:58:13+08:00" pubdate data-updated="true">2018/4/10</time></p>
+			  	<h1 class="entry-title">延迟运行func中的指针问题</h1>
+				<p class="meta"><time datetime="2019-03-04T11:35:20+08:00" pubdate data-updated="true">2019/3/4</time></p>
 			 </header>
 		  	<div class="entry-content">
-			  	<pre><code class="language-go">package main
+			  	<pre><code class="language-go"># package main
 
-import (
-    &quot;fmt&quot;
-    &quot;sort&quot;
-    &quot;strings&quot;
-)
+import &quot;fmt&quot;
 
 func main() {
-    god := []string{&quot;g&quot;, &quot;o&quot;, &quot;d&quot;}
-    sort.SliceStable(god, func(i, j int) bool { return i &gt; j })
-    fmt.Printf(&quot;god is %s&quot;, strings.Join(god,&quot;&quot;))
+    origin := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+    s := func(i int) func() {
+        return func() {
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, i)
+        }
+    }(origin[9])
+
+    origin[9] = 10
+    s() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
+    origin = append([]int{-1}, origin...)
+    s() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
+    s2 := func(i *int) func() {
+        return func() {
+            fmt.Println(&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;, *i)
+        }
+    }(&amp;(origin[9]))
+    s2() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8
+    origin[9] = 9
+    s2() // output: &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9
 }
 </code></pre>
-
-<p>output is : god is dog</p>
 
 			</div>
 
@@ -130,9 +140,12 @@ func main() {
 
 	    <p class="meta">
 	    
-	        <a class="basic-alignment left" href="15392434025926.html" 
-	        title="Previous Post: 矩阵空间压缩方法">&laquo; 矩阵空间压缩方法</a>
+	        <a class="basic-alignment left" href="15516707139709.html" 
+	        title="Previous Post: 超时表象">&laquo; 超时表象</a>
 	    
+	    
+	        <a class="basic-alignment right" href="15511520390847.html" 
+	        title="Next Post: 六大原则">六大原则 &raquo;</a>
 	    
 	    </p>
 	  </footer>
